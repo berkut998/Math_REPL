@@ -53,7 +53,14 @@ namespace ConsoleApp3
                 return new Token(" ", Token.tokenType.end);
             }
             while (char.IsWhiteSpace(input[ptrCurrentElement]))
-            ptrCurrentElement++;
+            { 
+                ptrCurrentElement++;
+                if (ptrCurrentElement > input.Length - 1)
+                {
+                    ptrLastElement = ptrCurrentElement;
+                    return new Token(" ", Token.tokenType.end);
+                }
+            }
             if (isDelimetr(input[ptrCurrentElement]))
             {
                 strBuilder.Append(input[ptrCurrentElement]);

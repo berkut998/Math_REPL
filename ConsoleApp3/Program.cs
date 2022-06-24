@@ -38,15 +38,15 @@ namespace ConsoleApp3
             //mathEvaluator.evaluate("A = 5");
             //mathEvaluator.evaluate("ZeroValue A + 5");    
 
-            mathEvaluator.evaluate("ZZ = 1");
-            mathEvaluator.evaluate("ZZ     ");
+            mathEvaluator.evaluate("x = 13 + (y = 3)");
+            mathEvaluator.evaluate(" x      ");
             
-            mathEvaluator.evaluate("a = 1");
-            mathEvaluator.evaluate("a");
-            mathEvaluator.evaluate("fn inc x => x + 1");
-            mathEvaluator.evaluate("a = inc a");
-            mathEvaluator.evaluate("fn inc x => x + 2");
-            mathEvaluator.evaluate("a = inc a");
+            //mathEvaluator.evaluate("a = 1");
+            //mathEvaluator.evaluate("a");
+            //mathEvaluator.evaluate("fn inc x => x + 1");
+            //mathEvaluator.evaluate("a = inc a");
+            //mathEvaluator.evaluate("fn inc x => x + 2");
+            //mathEvaluator.evaluate("a = inc a");
         }
     }
 }

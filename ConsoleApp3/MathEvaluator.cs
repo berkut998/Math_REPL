@@ -231,7 +231,7 @@ namespace ConsoleApp3
             if (token.content == "(")
             {
                 token = parser.getToken();
-                evaluate_add_sub(ref result); //here was add 23.06 change because of   x = 13 + (y = 3)
+                evaluate_assigment(ref result); //here was add 23.06 change because of   x = 13 + (y = 3)
                 if (token.content != ")")
                     error(new SyntaxException("Незакрытая скобка"));
                 token = parser.getToken();
