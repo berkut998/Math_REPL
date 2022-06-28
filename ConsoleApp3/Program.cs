@@ -4,13 +4,7 @@ namespace REPL
 {
     class Program
     {	   
-        /*added 
-            support console
-        need
-            support dot as number
-            support variables with var_1
-            support _
-        */
+
       //Simple Interactive Interpreter
 	  //https://www.codewars.com/kata/52ffcfa4aff455b3c2000750
 	   
