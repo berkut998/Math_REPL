@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using REPL.MathException;
-
+using System.Globalization; //need for correct decimal separator (dot "." instead comma ",")
 namespace REPL
 {
 
     public class MathEvaluator
     {
-        
         private Parser parser;
         private Token token;
         private Dictionary<string, double?> variables_dictionary = new Dictionary<string, double?>();
@@ -134,11 +133,11 @@ namespace REPL
                     if (functions_dictionary.TryGetValue(token.content, out Function nextFunction))
                     {
                         evaluate_function(ref result);
-                        token.content = result.ToString();
+                        token.content = Convert.ToString(result, CultureInfo.InvariantCulture);
                         token.type = Token.tokenType.number;
                         result = 0;
                     }
-                    if (!Double.TryParse(token.content, out double varValue))
+                    if (!Double.TryParse(token.content,NumberStyles.Float, CultureInfo.InvariantCulture, out double varValue))
                         varValue = (double)GlobalVariables[token.content];
 
                     variables_dictionary.Add(current_function.arguments[i].content, varValue);
@@ -155,7 +154,7 @@ namespace REPL
                 if (stack_parsers.Count == 0 && token.type == Token.tokenType.number)
                     error(new SyntaxException("Syntax error in position :" + parser.ptrCurrentElement + " token: " + token.content));
                 parser.getBack();
-                token = new Token(result.ToString(), Token.tokenType.number);
+                token = new Token(Convert.ToString(result,CultureInfo.InvariantCulture), Token.tokenType.number);
             }
         }
         private void evaluate_add_sub(ref double? result)
@@ -254,7 +253,10 @@ namespace REPL
                     token = parser.getToken();
                     break;
                 case Token.tokenType.number:
-                    result = double.Parse(token.content, System.Globalization.CultureInfo.InvariantCulture);
+                    //if (double.TryParse(token.content, out double _result)) //need for different decimal separator -> ,  .
+                    //    result = _result;
+                    //else 
+                        result = double.Parse(token.content, System.Globalization.CultureInfo.InvariantCulture);
                     token = parser.getToken();
                     break;
                 default:

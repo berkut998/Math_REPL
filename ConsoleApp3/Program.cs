@@ -12,7 +12,7 @@ namespace REPL
         {
             MathEvaluator mathEvaluator = new MathEvaluator();
             while (true)
-                Console.WriteLine(mathEvaluator.evaluate(Console.ReadLine()));
+                Console.WriteLine("Result: " + mathEvaluator.evaluate(Console.ReadLine()));
             
 
             //all work
