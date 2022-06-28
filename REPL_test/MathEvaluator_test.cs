@@ -111,6 +111,10 @@ namespace REPL_test
         public void assigment()
         {
             MathEvaluator interpret = new MathEvaluator();
+
+            check(ref interpret, "ZZ123    =   1", 1);
+            check(ref interpret, "ZZ_123    =   1", 1);
+            check(ref interpret, "123ZZ_    =   1", null);
             check(ref interpret, "ZZ    =   1", 1);
             check(ref interpret, "ZZ   ", 1);
             check(ref interpret, "x = 13 + (y = 3)", 16);
@@ -128,6 +132,15 @@ namespace REPL_test
             check(ref interpret, "a = inc a", 1);
             check(ref interpret, "fn inc x => x + 2", null);
             check(ref interpret, "a = inc a", 3);
+        }
+
+        [TestMethod]
+        public void FloatValue()
+        {
+            MathEvaluator interpret = new MathEvaluator();
+            check(ref interpret, "1.4 + 1.6", 3);
+            check(ref interpret, "3 /2", 1.5);
+            check(ref interpret, "1.125 - 0.125", 1);
         }
 
         //codewars tests

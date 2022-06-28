@@ -81,7 +81,8 @@ namespace REPL
             if (char.IsDigit(input[ptrCurrentElement]))
             {
                 ptrLastElement = ptrCurrentElement;
-                while (ptrCurrentElement < input.Length && char.IsDigit(input[ptrCurrentElement]))
+                while (ptrCurrentElement < input.Length && 
+                    (char.IsDigit(input[ptrCurrentElement]) || input[ptrCurrentElement] == '.'))
                 {
                     strBuilder.Append(input[ptrCurrentElement]);
                     ptrCurrentElement++;
@@ -91,7 +92,11 @@ namespace REPL
             if (char.IsLetter(input[ptrCurrentElement]))
             {
                 ptrLastElement = ptrCurrentElement;
-                while (ptrCurrentElement < input.Length && char.IsLetter(input[ptrCurrentElement]))
+                while (ptrCurrentElement < input.Length && 
+                    (char.IsLetter(input[ptrCurrentElement]) ||
+                    char.IsDigit(input[ptrCurrentElement]) ||
+                    input[ptrCurrentElement] == '_'
+                    ))
                 {
                     strBuilder.Append(input[ptrCurrentElement]);
                     ptrCurrentElement++;

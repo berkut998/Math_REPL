@@ -51,7 +51,7 @@ namespace REPL
                 evaluator_setFunction(ref result);
                 if (token.type != Token.tokenType.end)
                 {
-                    error(new SyntaxException("Syntax error in position :" + parser.ptrCurrentElement + "token: " + token.content));
+                    error(new SyntaxException("Syntax error in position :" + parser.ptrCurrentElement + " token: " + token.content));
                     return null;
                 }
                 return result;
@@ -70,7 +70,7 @@ namespace REPL
                 token = parser.getToken();
                 //try find name function
                 if (isDeclarated(token.content))
-                    error(new SyntaxException("Variable with such name already exist. Position :" + parser.ptrCurrentElement + "token: " + token.content));
+                    error(new SyntaxException("Variable with such name already exist. Position :" + parser.ptrCurrentElement + " token: " + token.content));
                 string functionName = token.content;
                 Function currentFunction = new Function();
                 token = parser.getToken();
@@ -153,7 +153,7 @@ namespace REPL
                 if (stack_parsers.Count == 0 && token.type == Token.tokenType.end)
                     isSoloFunction = true;
                 if (stack_parsers.Count == 0 && token.type == Token.tokenType.number)
-                    error(new SyntaxException("Syntax error in position :" + parser.ptrCurrentElement + "token: " + token.content));
+                    error(new SyntaxException("Syntax error in position :" + parser.ptrCurrentElement + " token: " + token.content));
                 parser.getBack();
                 token = new Token(result.ToString(), Token.tokenType.number);
             }
@@ -254,13 +254,13 @@ namespace REPL
                     token = parser.getToken();
                     break;
                 case Token.tokenType.number:
-                    result = double.Parse(token.content);
+                    result = double.Parse(token.content, System.Globalization.CultureInfo.InvariantCulture);
                     token = parser.getToken();
                     break;
                 default:
                     if (isSoloFunction == true)
                         return;
-                    error(new SyntaxException("Syntax error in position :" + parser.ptrCurrentElement + "token: " + token.content));
+                    error(new SyntaxException("Syntax error in position :" + parser.ptrCurrentElement + " token: " + token.content));
                     break;
             }
         }
@@ -280,7 +280,7 @@ namespace REPL
         private double? findVariable(string nameVariable)
         {
             if (!variables_dictionary.TryGetValue(nameVariable, out double? result))
-                error(new SyntaxException("Syntax error in position :" + parser.ptrCurrentElement + "token: " + token.content));
+                error(new SyntaxException("Syntax error in position :" + parser.ptrCurrentElement + " token: " + token.content));
             return result;
         }
         private bool isDeclarated(string name)
