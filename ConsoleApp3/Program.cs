@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
-using System.Net.Cache;
-using System.IO;
-namespace ConsoleApp3
+namespace REPL
 {
     class Program
-    {
-       //TODO problem with global variables when give them to method
-       //TODO overwiting function (should work but beacuse of global variable still not tested)
+    {	   
+      //Simple Interactive Interpreter
+	  //https://www.codewars.com/kata/52ffcfa4aff455b3c2000750
+	   
         static void Main(string[] args)
         {
             Parser parser = new Parser("fn functionName => 1 + 5");
@@ -36,17 +30,35 @@ namespace ConsoleApp3
             //mathEvaluator.evaluate("fn ZeroValue input => input = 0");
             //mathEvaluator.evaluate("fn sum x y => x + y");
             //mathEvaluator.evaluate("A = 5");
-            //mathEvaluator.evaluate("ZeroValue A + 5");    
+            //mathEvaluator.evaluate("ZeroValue A + 5")
 
-            mathEvaluator.evaluate("x = 13 + (y = 3)");
-            mathEvaluator.evaluate(" x      ");
-            
-            //mathEvaluator.evaluate("a = 1");
-            //mathEvaluator.evaluate("a");
-            //mathEvaluator.evaluate("fn inc x => x + 1");
-            //mathEvaluator.evaluate("a = inc a");
-            //mathEvaluator.evaluate("fn inc x => x + 2");
-            //mathEvaluator.evaluate("a = inc a");
+
+
+
+            //mathEvaluator.evaluate("fn ZeroValue input => input = 0");
+            //mathEvaluator.evaluate("fn sum x y => x + y");
+            //mathEvaluator.evaluate("A = 5");
+            //mathEvaluator.evaluate("ZeroValue A + 5");
+            //mathEvaluator.evaluate("sum 1 ZeroValue 0");
+
+            mathEvaluator.evaluate("fn one => 1");
+            mathEvaluator.evaluate("fn avg x y => (x + y) / 2");
+            mathEvaluator.evaluate("fn echo x => x");
+            mathEvaluator.evaluate("fn add x y => x + z");
+            mathEvaluator.evaluate("fn add x x => x + x");
+            mathEvaluator.evaluate("(fn f => 1)");
+            mathEvaluator.evaluate("one");
+            mathEvaluator.evaluate("avg 4 2");
+            mathEvaluator.evaluate("avg 7");
+            mathEvaluator.evaluate("avg 7 2 4");
+            mathEvaluator.evaluate("avg echo 4 echo 2");
+            mathEvaluator.evaluate("avg echo 7");
+            mathEvaluator.evaluate("avg echo 7 echo 2 echo 4");
+            mathEvaluator.evaluate("fn f a b => a * b");
+            mathEvaluator.evaluate("fn g a b c => a * b * c");
+            mathEvaluator.evaluate("g g 1 2 3 f 4 5 f 6 7") ;//5040
+
+
         }
     }
 }

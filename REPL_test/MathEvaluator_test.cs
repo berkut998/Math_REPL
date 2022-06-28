@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ConsoleApp3;
+using REPL;
 namespace REPL_test
 {
     [TestClass]
@@ -137,7 +135,10 @@ namespace REPL_test
         {
             double? result = -9999.99;
             try { result = interpret.evaluate(inp); } catch (Exception) { result = null; }
-            if (result != res) Assert.Fail("input(\"" + inp + "\") == <" + res + "> and not <" + result + "> => wrong solution, aborted!"); else Console.WriteLine("input(\"" + inp + "\") == <" + res + "> was ok");
+            if (result != res) 
+                Assert.Fail("input(\"" + inp + "\") == <" + res + "> and not <" + result + "> => wrong solution, aborted!"); 
+            else 
+                Console.WriteLine("input(\"" + inp + "\") == <" + res + "> was ok");
         }
 
         [TestMethod]

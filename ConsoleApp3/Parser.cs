@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace REPL
 {
     public struct Token
     {
@@ -33,7 +30,11 @@ namespace ConsoleApp3
     {
         private string input;
         private int ptrLastElement;
-        private int ptrCurrentElement;
+        public int ptrCurrentElement 
+        {
+            get;
+            private set ; 
+        }
         private List<Token> tokens;
         public Parser (string input)
         {

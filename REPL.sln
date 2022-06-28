@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp3", "ConsoleApp3\ConsoleApp3.csproj", "{1984AC89-C021-4366-94F1-D3B16165FC28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REPL", "ConsoleApp3\REPL.csproj", "{1984AC89-C021-4366-94F1-D3B16165FC28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REPL_test", "REPL_test\REPL_test.csproj", "{711523B8-5C1B-48BC-B604-5095FD8C45F0}"
 EndProject
