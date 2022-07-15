@@ -32,6 +32,8 @@ letter ::= 'a' | 'b' | ... | 'y' | 'z' | 'A' | 'B' | ... | 'Y' | 'Z'
 
 digit ::= '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 
+Do not support error processing, all input should be valid.
+
 Application screenshots: 
 
 ![image](https://user-images.githubusercontent.com/66470614/176257090-8880c5b1-be36-443a-8d56-bba67945e996.png)
